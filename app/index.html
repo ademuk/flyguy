@@ -20,8 +20,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header" ng-controller="HeaderCtrl">
-      <div class="navbar navbar-default" role="navigation">
+    <div ng-controller="HeaderCtrl">
+      <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
 
@@ -44,11 +44,11 @@
             </ul>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
 
     <div class="container">
-    <div ng-view=""></div>
+        <div ng-view=""></div>
     </div>
 
     <div class="footer">
@@ -82,12 +82,15 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/resources/flight.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/resources/flights.js"></script>
     <script src="scripts/controllers/header.js"></script>
     <script src="scripts/controllers/home.js"></script>
     <script src="scripts/controllers/flights.js"></script>
