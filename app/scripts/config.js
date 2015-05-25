@@ -13,9 +13,9 @@ angular.module('flyguyApp')
         RestangularProvider.setBaseUrl('http://127.0.0.1:8000/api');
         RestangularProvider.setRequestSuffix('/');
         RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-          if (operation === "getList") {
-            data = data.results;
-          }
-          return data;
+            if (operation === "getList") {
+                data = data.results;
+            }
+            return data;
         });
     });
