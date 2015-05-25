@@ -15,25 +15,4 @@ angular.module('flyguyApp')
             });
         }
         $scope.loadFlights();
-
-        $scope.flights = [
-            {
-                id: "1",
-                name: "Flight 1",
-                "date": "2015-05-07T23:00:00.000Z",
-                "notes": "Nootes"
-            },
-            {
-                id: "2",
-                name: "Flight 2",
-                "date": "2015-05-07T23:00:00.000Z",
-                "notes": "Nooftes"
-            },
-            {
-                id: "1",
-                name: "Flight 3",
-                "date": "2015-05-07T23:00:00.000Z",
-                "notes": "Nodotes"
-            },
-        ];
   });

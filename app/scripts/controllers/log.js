@@ -8,11 +8,13 @@
  * Controller of the flyguyApp
  */
 angular.module('flyguyApp')
-    .controller('LogCtrl', function ($scope, $location, Flights) {
+    .controller('LogCtrl', function ($scope, $location, $filter, Flights) {
         $scope.master = {};
 
-        $scope.update = function(user) {
-            Flights.post(user).then(function () {
+        $scope.update = function(flight) {
+            var newFlight = angular.copy(flight);
+            newFlight.date = $filter('date')(newFlight.date, 'yyyy-MM-dd');
+            Flights.post(newFlight).then(function () {
                 $location.path("/flights");
             });
         };
