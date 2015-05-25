@@ -1,4 +1,4 @@
 angular.module('flyguyApp')
-    .service('Flights', ['Restangular', function(Restangular) {
+    .factory('Flights', function(Restangular) {
         return Restangular.service('flights');
-    }]);
+    });

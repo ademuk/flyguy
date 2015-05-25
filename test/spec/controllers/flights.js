@@ -39,7 +39,7 @@ describe('FlightsCtrl', function () {
         $controller('FlightsCtrl', {
             $scope: $scope,
             'Flights': mockFlights
-        })
+        });
     }))
 
     beforeEach(function () {

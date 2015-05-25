@@ -1,7 +1,9 @@
 {
   "name": "flyguy",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "angular-new-router": "^0.5.3"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",

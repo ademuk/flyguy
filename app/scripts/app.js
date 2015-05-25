@@ -25,6 +25,9 @@ angular
             .when('/flights', {
                 templateUrl: 'views/flights.html',
                 controller: 'FlightsCtrl'
+            }).when('/flights/:flightId', {
+                templateUrl: 'views/flight.html',
+                controller: 'FlightCtrl'
             }).when('/log', {
                 templateUrl: 'views/log.html',
                 controller: 'LogCtrl'
