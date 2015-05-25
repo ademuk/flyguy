@@ -10,7 +10,7 @@
 angular.module('flyguyApp')
     .controller('FlightsCtrl', function ($scope, Flights) {
         $scope.loadFlights = function () {
-            Flights.getList({full: true, limit: 10}).then(function (flights) {
+            Flights.getList().then(function (flights) {
                 $scope.flights = flights;
             });
         }
