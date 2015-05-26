@@ -15,23 +15,29 @@ angular
         'ngCookies',
         'ngMessages',
         'ngResource',
-        'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'restangular'
+        'restangular',
+        'ui.router'
     ])
-    .config(function ($routeProvider) {
-        $routeProvider
-            .when('/flights', {
+    .config(function ($stateProvider, $urlRouterProvider) {
+
+        $stateProvider
+            .state('flights', {
+                url: '/flights',
                 templateUrl: 'views/flights.html',
                 controller: 'FlightsCtrl'
-            }).when('/flights/:flightId', {
-                templateUrl: 'views/flight.html',
-                controller: 'FlightCtrl'
-            }).when('/log', {
+            })
+            .state('flights.view', {
+                url: '/:id',
+                templateUrl: 'views/flights.view.html',
+                controller: 'FlightsViewCtrl'
+            })
+            .state('log', {
+                url: '/log',
                 templateUrl: 'views/log.html',
                 controller: 'LogCtrl'
-            }).otherwise({
-                redirectTo: '/flights'
-            })
+            });
+
+        $urlRouterProvider.otherwise("/flights");
     });

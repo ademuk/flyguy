@@ -1,6 +1,6 @@
 'use strict';
 
-describe('FlightCtrl', function () {
+describe('FlightsViewCtrl', function () {
 
     // load the controller's module
     beforeEach(module('flyguyApp'));

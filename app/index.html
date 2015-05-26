@@ -19,35 +19,32 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div ng-controller="HeaderCtrl">
-      <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-            <a class="navbar-brand" href="#/">flyguy</a>
-          </div>
+        <a class="navbar-brand" href="#/">flyguy</a>
+      </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li ng-class="{active: isActive('/flights')}"><a ng-href="#/flights">Flights</a></li>
-              <li ng-class="{active: isActive('/log')}"><a ng-href="#/log">Log</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        <ul class="nav navbar-nav">
+          <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li>
+          <li ui-sref-active="active"><a ui-sref="log">Log</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
     <div class="container">
-        <div ng-view=""></div>
+        <div ui-view></div>
     </div>
 
     <div class="footer">
@@ -80,11 +77,11 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -92,9 +89,8 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/config.js"></script>
     <script src="scripts/resources/flights.js"></script>
-    <script src="scripts/controllers/header.js"></script>
     <script src="scripts/controllers/flights.js"></script>
-    <script src="scripts/controllers/flight.js"></script>
+    <script src="scripts/controllers/flights.view.js"></script>
     <script src="scripts/controllers/log.js"></script>
     <!-- endbuild -->
 </body>
