@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name flyguyApp.controller:FlightsViewCtrl
+ * @name flyguyApp.controller:FlightCtrl
  * @description
- * # FlightsViewCtrl
+ * # FlightCtrl
  * Controller of the flyguyApp
  */
 angular.module('flyguyApp')
-    .controller('FlightsViewCtrl', function ($scope, $stateParams, Flights) {
+    .controller('FlightCtrl', function ($scope, $stateParams, Flights) {
         $scope.loadFlight = function () {
             Flights.one($stateParams.id).get().then(function (flight) {
                 $scope.flight = flight;

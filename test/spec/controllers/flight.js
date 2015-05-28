@@ -1,6 +1,6 @@
 'use strict';
 
-describe('FlightsViewCtrl', function () {
+describe('FlightCtrl', function () {
 
     // load the controller's module
     beforeEach(module('flyguyApp'));
@@ -38,8 +38,8 @@ describe('FlightsViewCtrl', function () {
 
         $controller('FlightCtrl', {
             $scope: $scope,
-            $routeParams: {
-                flightId: '1',
+            $stateParams: {
+                id: '1',
             },
             'Flights': mockFlights
         })

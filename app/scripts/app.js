@@ -28,10 +28,10 @@ angular
                 templateUrl: 'views/flights.html',
                 controller: 'FlightsCtrl'
             })
-            .state('flights.view', {
-                url: '/:id',
-                templateUrl: 'views/flights.view.html',
-                controller: 'FlightsViewCtrl'
+            .state('flight', {
+                url: '/flight/:id',
+                templateUrl: 'views/flight.html',
+                controller: 'FlightCtrl'
             })
             .state('log', {
                 url: '/log',
