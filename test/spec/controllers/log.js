@@ -10,12 +10,12 @@ describe('LogCtrl', function () {
         $scope,
         mockFlights,
         mockFlightsResponse = [
-          {
-              "url": "http://foo.bar/api/flights/1",
-              "name": "Flight 1",
-              "date": "2015-05-05",
-              "notes": "Notes"
-          }
+            {
+                "url": "http://foo.bar/api/flights/1",
+                "name": "Flight 1",
+                "date": "2015-05-05",
+                "notes": "Notes"
+            }
         ],
         queryDeferred;
 
