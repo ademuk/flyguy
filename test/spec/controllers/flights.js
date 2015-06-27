@@ -40,7 +40,7 @@ describe('FlightsCtrl', function () {
             $scope: $scope,
             'Flights': mockFlights
         });
-    }))
+    }));
 
     beforeEach(function () {
         queryDeferred.resolve(mockFlightsResponse);
@@ -48,7 +48,7 @@ describe('FlightsCtrl', function () {
     });
 
     it('should load flights', function () {
-       expect(mockFlights.getList).toHaveBeenCalled();
+        expect(mockFlights.getList).toHaveBeenCalled();
     });
 
     it('should load flights into scope', function () {
