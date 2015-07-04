@@ -37,6 +37,16 @@ angular
                 url: '/log',
                 templateUrl: 'views/log.html',
                 controller: 'LogCtrl'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'views/login.html',
+                controller: 'LoginCtrl'
+            })
+            .state('logout', {
+                url: '/login',
+                templateUrl: 'views/logout.html',
+                controller: 'LogoutCtrl'
             });
 
         $urlRouterProvider.otherwise("/flights");

@@ -33,11 +33,13 @@
         <a class="navbar-brand" href="#/">flyguy</a>
       </div>
 
-      <div class="collapse navbar-collapse" id="js-navbar-collapse">
+      <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavCtrl">
 
         <ul class="nav navbar-nav">
-          <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li>
-          <li ui-sref-active="active"><a ui-sref="log">Log</a></li>
+            <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li>
+            <li ui-sref-active="active"><a ui-sref="log">Log</a></li>
+            <li ui-sref-active="active" ng-show="!user.session"><a ui-sref="login">Log in</a></li>
+            <li ui-sref-active="active" ng-show="user.session"><a ui-sref="logout">Log out</a></li>
         </ul>
       </div>
     </div>
@@ -82,16 +84,21 @@
     <script src="bower_components/lodash/lodash.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/config.js"></script>
+    <script src="scripts/resources/session.js"></script>
     <script src="scripts/resources/flights.js"></script>
+    <script src="scripts/controllers/nav.js"></script>
     <script src="scripts/controllers/flights.js"></script>
     <script src="scripts/controllers/flight.js"></script>
     <script src="scripts/controllers/log.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/logout.js"></script>
     <!-- endbuild -->
 </body>
 </html>
