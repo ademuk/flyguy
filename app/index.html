@@ -38,8 +38,8 @@
         <ul class="nav navbar-nav">
             <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li>
             <li ui-sref-active="active"><a ui-sref="log">Log</a></li>
-            <li ui-sref-active="active" ng-show="!user.session"><a ui-sref="login">Log in</a></li>
-            <li ui-sref-active="active" ng-show="user.session"><a ui-sref="logout">Log out</a></li>
+            <li ui-sref-active="active" ng-show="!session.exists()"><a ui-sref="login">Log in</a></li>
+            <li ui-sref-active="active" ng-show="session.exists()"><a ui-sref="logout">Log out</a></li>
         </ul>
       </div>
     </div>
