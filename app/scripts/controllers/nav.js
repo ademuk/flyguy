@@ -12,5 +12,5 @@ angular.module('flyguyApp')
     $scope.session = Session;
     $scope.logOut = function () {
       Session.destroy();
-    }
+    };
   });
