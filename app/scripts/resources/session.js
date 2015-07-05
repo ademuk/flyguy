@@ -25,7 +25,11 @@ angular.module('flyguyApp')
 
           _setToken: function (value) {
             this.token = value;
-            localStorage.setItem('sessionToken', value);
+            if (value) {
+              localStorage.setItem('sessionToken', value);
+            } else {
+              localStorage.removeItem('sessionToken');
+            }
           },
 
           _onLogon: function(response) {
