@@ -38,8 +38,11 @@
         <ul class="nav navbar-nav">
             <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li>
             <li ui-sref-active="active"><a ui-sref="log">Log</a></li>
-            <li ui-sref-active="active" ng-show="!session.exists()"><a ui-sref="login">Log in</a></li>
-            <li ui-sref-active="active" ng-show="session.exists()"><a ui-sref="logout">Log out</a></li>
+            <li ui-sref-active="active" ng-show="!session.exists()">
+              <button ui-sref="login" class="btn btn-default navbar-btn navbar-right">Log in</button>
+            </li>
+            <li ng-show="session.exists()">
+              <button class="btn btn-default navbar-btn navbar-right" ng-click="logOut">Log out</button></li>
         </ul>
       </div>
     </div>
@@ -99,7 +102,6 @@
     <script src="scripts/controllers/flight.js"></script>
     <script src="scripts/controllers/log.js"></script>
     <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/logout.js"></script>
     <!-- endbuild -->
 </body>
 </html>

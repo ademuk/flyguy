@@ -10,4 +10,7 @@
 angular.module('flyguyApp')
   .controller('NavCtrl', function ($scope, Session) {
     $scope.session = Session;
+    $scope.logOut = function () {
+      Session.destroy();
+    }
   });

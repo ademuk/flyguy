@@ -57,4 +57,14 @@ describe('Session', function () {
 
     expect(Session.exists()).toEqual(true);
   });
+
+  it('destroy removes session', function () {
+    Session.create(userPayload);
+    postDeferred.resolve(mockResponse);
+    $rootScope.$digest();
+
+    Session.destroy();
+
+    expect(Session.exists()).toEqual(false);
+  });
 });

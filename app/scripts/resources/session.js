@@ -2,7 +2,13 @@
 
 angular.module('flyguyApp')
     .factory('Session', function(config, $http) {
-        function Session () {};
+
+        function Session () {
+          if (localStorage.getItem('sessionToken')) {
+            this._setToken(localStorage.getItem('sessionToken'));
+          }
+        };
+
         Session.prototype = {
           create: function(user) {
             return $http.post(config.baseUrl + 'api-token-auth/', user)
@@ -10,15 +16,20 @@ angular.module('flyguyApp')
           },
 
           destroy: function() {
-            this.token = null;
+            this._setToken(null);
           },
 
           exists: function() {
             return !!this.token;
           },
 
+          _setToken: function (value) {
+            this.token = value;
+            localStorage.setItem('sessionToken', value);
+          },
+
           _onLogon: function(response) {
-            this.token = response.data.token;
+            this._setToken(response.data.token);
             return response.data;
           }
         };
