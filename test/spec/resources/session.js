@@ -1,26 +1,60 @@
 'use strict';
 
 describe('Session', function () {
-  var Session;
+  var baseUrl = 'http://fooaddress/',
+      userPayload = {
+        'username': 'fooUsername',
+        'password': 'fooPassword'
+      },
+      $rootScope,
+      $q,
+      Session,
+      mockHttp,
+      mockResponse = {
+        "data": {
+          "token": "fooToken"
+        }
+      },
+      postDeferred;
 
   beforeEach(module('flyguyApp'));
 
-  beforeEach(inject(function (_Session_) {
-    Session = _Session_;
+  beforeEach(module(function ($provide) {
+      mockHttp = {
+        'post': function () {}
+      };
+      $provide.value('$http', mockHttp);
+      $provide.constant('config', {
+        "baseUrl": baseUrl
+      });
   }));
 
-  beforeEach(function () {
-    var mockHttp = {
-      post: function () {
-        console.log(1);
-      }
-    };
-    module(function ($provide) {
-      $provide.value('$http', mockHttp);
-    });
+  beforeEach(inject(function (_$rootScope_, _$q_, _Session_) {
+    $rootScope = _$rootScope_;
+    $q = _$q_;
+    Session = _Session_;
+
+    postDeferred = $q.defer();
+    sinon.stub(mockHttp, "post").returns(postDeferred.promise);
+  }));
+
+  it('create session calls correct endpoint', function () {
+    Session.create(userPayload);
+    postDeferred.resolve(mockResponse);
+    expect(mockHttp.post.calledOnce).toEqual(true);
+    expect(mockHttp.post.calledWith(baseUrl + 'api-token-auth/', userPayload))
+      .toEqual(true);
   });
 
-  it('create session', function () {
-    Session.create();
+  it('session does not exists by default', function () {
+    expect(Session.exists()).toEqual(false);
+  });
+
+  it('session exists after it\'s created', function () {
+    Session.create(userPayload);
+    postDeferred.resolve(mockResponse);
+    $rootScope.$digest();
+
+    expect(Session.exists()).toEqual(true);
   });
 });
