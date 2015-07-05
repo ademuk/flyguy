@@ -38,7 +38,7 @@
             <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li>
             <li ui-sref-active="active"><a ui-sref="log">Log</a></li>
             <li ui-sref-active="active" ng-show="!session.exists()">
-              <button ui-sref="login" class="btn btn-default navbar-btn navbar-right">Log in</button>
+              <button ui-sref="login" class="btn btn-default navbar-btn">Log in</button>
             </li>
             <li ng-show="session.exists()">
               <button class="btn btn-default navbar-btn" ng-click="logOut()" type="button">Log out</button>
