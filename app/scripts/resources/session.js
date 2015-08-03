@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('flyguyApp')
   .factory('Session', function(config, $http) {
@@ -7,7 +7,7 @@ angular.module('flyguyApp')
       if (localStorage.getItem('sessionToken')) {
         this._setToken(localStorage.getItem('sessionToken'));
       }
-    };
+    }
 
     Session.prototype = {
       create: function(user) {

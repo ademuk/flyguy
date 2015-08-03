@@ -11,10 +11,10 @@ describe('FlightsCtrl', function () {
         mockFlights,
         mockFlightsResponse = [
             {
-                "url": "http://foo.bar/api/flights/1",
-                "name": "Flight 1",
-                "date": "2015-05-05",
-                "notes": "Notes"
+                'url': 'http://foo.bar/api/flights/1',
+                'name': 'Flight 1',
+                'date': '2015-05-05',
+                'notes': 'Notes'
             }
         ],
         queryDeferred;
@@ -30,7 +30,7 @@ describe('FlightsCtrl', function () {
         mockFlights = {
             getList: function () {
                 queryDeferred = $q.defer();
-                return queryDeferred.promise
+                return queryDeferred.promise;
             }
         };
 

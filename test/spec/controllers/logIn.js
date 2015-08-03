@@ -20,7 +20,7 @@ describe('LoginCtrl', function () {
     $scope = $rootScope.$new();
     locationMock = {
       'path': sinon.stub()
-    }
+    };
     $controller('LoginCtrl', {
       $scope: $scope,
       $location: locationMock,

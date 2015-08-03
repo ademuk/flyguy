@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 describe('NavCtrl', function () {
   beforeEach(module('flyguyApp'));
@@ -12,7 +12,7 @@ describe('NavCtrl', function () {
 
     locationMock = {
       'path': sinon.stub()
-    }
+    };
 
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();

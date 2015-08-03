@@ -11,8 +11,8 @@ describe('Session', function () {
       Session,
       mockHttp,
       mockResponse = {
-        "data": {
-          "token": "fooToken"
+        'data': {
+          'token': 'fooToken'
         }
       },
       postDeferred;
@@ -25,7 +25,7 @@ describe('Session', function () {
       };
       $provide.value('$http', mockHttp);
       $provide.constant('config', {
-        "baseUrl": baseUrl
+        'baseUrl': baseUrl
       });
   }));
 
@@ -35,7 +35,7 @@ describe('Session', function () {
     Session = _Session_;
 
     postDeferred = $q.defer();
-    sinon.stub(mockHttp, "post").returns(postDeferred.promise);
+    sinon.stub(mockHttp, 'post').returns(postDeferred.promise);
   }));
 
   it('create session calls correct endpoint', function () {

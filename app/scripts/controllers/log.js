@@ -13,7 +13,7 @@ angular.module('flyguyApp')
             var newFlight = angular.copy(flight);
             newFlight.date = $filter('date')(newFlight.date, 'yyyy-MM-dd');
             Flights.post(newFlight).then(function () {
-                $location.path("/flights");
+                $location.path('/flights');
             });
         };
     });

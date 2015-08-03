@@ -10,10 +10,10 @@ describe('FlightCtrl', function () {
         $scope,
         mockFlights,
         mockFlightResponse = {
-            "url": "http://foo.bar/api/flights/1",
-            "name": "Flight 1",
-            "date": "2015-05-05",
-            "notes": "Notes"
+            'url': 'http://foo.bar/api/flights/1',
+            'name': 'Flight 1',
+            'date': '2015-05-05',
+            'notes': 'Notes'
         },
         queryDeferred;
 
@@ -29,8 +29,8 @@ describe('FlightCtrl', function () {
             one: function () {
                 queryDeferred = $q.defer();
                 return {
-                    get: function () { return queryDeferred.promise }
-                }
+                    get: function () { return queryDeferred.promise; }
+                };
             }
         };
 
@@ -42,8 +42,8 @@ describe('FlightCtrl', function () {
                 id: '1',
             },
             'Flights': mockFlights
-        })
-    }))
+        });
+    }));
 
     beforeEach(function () {
         queryDeferred.resolve(mockFlightResponse);

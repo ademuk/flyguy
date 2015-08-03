@@ -13,6 +13,6 @@ angular.module('flyguyApp')
             Flights.getList().then(function (flights) {
                 $scope.flights = flights;
             });
-        }
+        };
         $scope.loadFlights();
   });

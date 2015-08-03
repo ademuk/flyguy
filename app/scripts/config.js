@@ -1,6 +1,6 @@
 'use strict';
 
-var baseUrl = "http://127.0.0.1:8000/";
+var baseUrl = 'http://127.0.0.1:8000/';
 
 /**
  * @ngdoc overview
@@ -18,8 +18,8 @@ angular.module('flyguyApp')
 angular.module('flyguyApp').config(function(RestangularProvider, config) {
         RestangularProvider.setBaseUrl(config.baseUrl + 'api');
         RestangularProvider.setRequestSuffix('/');
-        RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-            if (operation === "getList") {
+        RestangularProvider.addResponseInterceptor(function(data, operation) {
+            if (operation === 'getList') {
                 data = data.results;
             }
             return data;

@@ -50,7 +50,7 @@ angular
                 controller: 'LogoutCtrl'
             });
 
-        $urlRouterProvider.otherwise("/flights");
+        $urlRouterProvider.otherwise('/flights');
     })
     .config(function Config($httpProvider, jwtInterceptorProvider) {
       jwtInterceptorProvider.authPrefix = 'JWT ';

@@ -11,10 +11,10 @@ describe('LogCtrl', function () {
         mockFlights,
         mockFlightsResponse = [
             {
-                "url": "http://foo.bar/api/flights/1",
-                "name": "Flight 1",
-                "date": "2015-05-05",
-                "notes": "Notes"
+                'url': 'http://foo.bar/api/flights/1',
+                'name': 'Flight 1',
+                'date': '2015-05-05',
+                'notes': 'Notes'
             }
         ],
         queryDeferred;
@@ -30,7 +30,7 @@ describe('LogCtrl', function () {
         mockFlights = {
             post: function () {
                 queryDeferred = $q.defer();
-                return queryDeferred.promise
+                return queryDeferred.promise;
             }
         };
 
@@ -44,18 +44,18 @@ describe('LogCtrl', function () {
 
     it('should post flight on log form submit', function () {
         $scope.log({
-            "name": "foo",
-            "date": new Date(2015, 2, 1),
-            "notes": "Notes\nBar"
+            'name': 'foo',
+            'date': new Date(2015, 2, 1),
+            'notes': 'Notes\nBar'
         });
 
         queryDeferred.resolve(mockFlightsResponse);
         $rootScope.$apply();
 
         expect(mockFlights.post).toHaveBeenCalledWith({
-            "name": "foo",
-            "date": "2015-03-01",
-            "notes": "Notes\nBar"
+            'name': 'foo',
+            'date': '2015-03-01',
+            'notes': 'Notes\nBar'
         });
     });
 });
