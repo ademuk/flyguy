@@ -1,7 +1,6 @@
-# flyguy ui
+# Flyguy Client
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+A project to keep track of my mini quad flights
 
 ## Build & development
 
