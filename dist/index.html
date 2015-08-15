@@ -1,0 +1,13 @@
+<!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/main.4263b352.css">  <body ng-app="flyguyApp"> <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <nav class="navbar navbar-default"> <div class="container"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#/">flyguy</a> </div> <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="NavCtrl"> <ul class="nav navbar-nav"> <li ui-sref-active="active"><a ui-sref="flights">Flights</a></li> <li ui-sref-active="active"><a ui-sref="log">Log</a></li> <li ui-sref-active="active" ng-show="!session.exists()"> <button ui-sref="login" class="btn btn-default navbar-btn">Log in</button> </li> <li ng-show="session.exists()"> <button class="btn btn-default navbar-btn" ng-click="logOut()" type="button">Log out</button> </li> </ul> </div> </div> </nav> <div class="container"> <div ui-view></div> </div> <div class="footer"> <div class="container"> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <!--
+    <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+    --> <script src="scripts/vendor.a8cfcaea.js"></script> <script src="scripts/scripts.b898efe9.js"></script>  
