@@ -8,11 +8,16 @@
  * Controller of the flyguyApp
  */
 angular.module('flyguyApp')
-    .controller('FlightsCtrl', function ($scope, Flights) {
+    .controller('FlightsCtrl', function ($scope, Flights, Session) {
+        $scope.flights = [];
+
         $scope.loadFlights = function () {
             Flights.getList().then(function (flights) {
                 $scope.flights = flights;
             });
         };
-        $scope.loadFlights();
+
+        if (Session.exists()) {
+          $scope.loadFlights();
+        }
   });

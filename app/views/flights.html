@@ -6,4 +6,7 @@
         </h4>
         <p>{{flight.notes | limitTo:100}} ...</p>
     </li>
+    <li ng-show="!flights.length">
+    	You don't have any flights yet. You should <a ui-sref="log">Log a Flight</a>.
+    </li>
 </ul>
