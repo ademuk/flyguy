@@ -1,6 +1,6 @@
 'use strict';
 
-var baseUrl = 'http://flyguy-service.appyharry.com/';
+var baseUrl = 'http://flyguy-service.appyharry.com/api/';
 
 /**
  * @ngdoc overview
@@ -16,7 +16,7 @@ angular.module('flyguyApp')
     });
 
 angular.module('flyguyApp').config(function(RestangularProvider, config) {
-        RestangularProvider.setBaseUrl(config.baseUrl + 'api');
+        RestangularProvider.setBaseUrl(config.baseUrl);
         RestangularProvider.setRequestSuffix('/');
         RestangularProvider.addResponseInterceptor(function(data, operation) {
             if (operation === 'getList') {

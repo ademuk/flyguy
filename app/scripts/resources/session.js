@@ -11,7 +11,7 @@ angular.module('flyguyApp')
 
     Session.prototype = {
       create: function(user) {
-        return $http.post(config.baseUrl + 'api-token-auth/', user)
+        return $http.post(config.baseUrl + 'token-auth/', user)
           .then(this._onLogon.bind(this));
       },
 
