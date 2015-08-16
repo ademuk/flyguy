@@ -43,7 +43,7 @@ describe('LogCtrl', function () {
     }));
 
     it('should post flight on log form submit', function () {
-        $scope.log({
+        $scope.submitForm(true, {
             'name': 'foo',
             'date': new Date(2015, 2, 1),
             'notes': 'Notes\nBar'
