@@ -42,7 +42,7 @@ describe('Session', function () {
     Session.create(userPayload);
     postDeferred.resolve(mockResponse);
     expect(mockHttp.post.calledOnce).toEqual(true);
-    expect(mockHttp.post.calledWith(baseUrl + 'api-token-auth/', userPayload))
+    expect(mockHttp.post.calledWith(baseUrl + 'token-auth/', userPayload))
       .toEqual(true);
   });
 
