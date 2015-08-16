@@ -1,5 +1,5 @@
 # Flyguy Client
-[![Build Status](https://travis-ci.org/ademuk/flyguy-client.svg?branch=master)](https://travis-ci.org/ademuk/flyguy-client)
+[![Build Status](https://travis-ci.org/ademuk/flyguy.svg?branch=master)](https://travis-ci.org/ademuk/flyguy)
 
 A project to keep track of my mini quad flights
 
