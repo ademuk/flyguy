@@ -20,3 +20,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 input[type=date] {
 	width: 160px;
 }
+
+input[name=username], input[name=password] {
+	width: 200px;
+}
