@@ -15,7 +15,7 @@ angular.module('flyguyApp')
         baseUrl: baseUrl
     });
 
-angular.module('flyguyApp').config(function(RestangularProvider, config) {
+angular.module('flyguyApp').config(function(RestangularProvider, jwtInterceptorProvider, $httpProvider, config) {
         RestangularProvider.setBaseUrl(config.baseUrl);
         RestangularProvider.setRequestSuffix('/');
         RestangularProvider.addResponseInterceptor(function(data, operation) {
@@ -24,4 +24,12 @@ angular.module('flyguyApp').config(function(RestangularProvider, config) {
             }
             return data;
         });
+
+        jwtInterceptorProvider.authPrefix = 'JWT ';
+        // Please note we're annotating the function so that the $injector works when the file is minified
+        jwtInterceptorProvider.tokenGetter = ['Session', function(Session) {
+          return Session.token;
+        }];
+
+        $httpProvider.interceptors.push('jwtInterceptor');
     });

@@ -51,13 +51,4 @@ angular
             });
 
         $urlRouterProvider.otherwise('/flights');
-    })
-    .config(function Config($httpProvider, jwtInterceptorProvider) {
-      jwtInterceptorProvider.authPrefix = 'JWT ';
-      // Please note we're annotating the function so that the $injector works when the file is minified
-      jwtInterceptorProvider.tokenGetter = ['Session', function(Session) {
-          return Session.token;
-      }];
-
-      $httpProvider.interceptors.push('jwtInterceptor');
     });
