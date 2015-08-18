@@ -10,12 +10,7 @@
  */
 angular
     .module('flyguyApp', [
-        'ngAnimate',
         'ngAria',
-        'ngCookies',
-        'ngMessages',
-        'ngResource',
-        'ngSanitize',
         'ngTouch',
         'restangular',
         'ui.router',
