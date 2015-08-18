@@ -12,7 +12,7 @@ angular.module('flyguyApp')
     Session.prototype = {
       create: function(user) {
         return $http.post(config.baseUrl + 'token-auth/', user)
-          .then(this._onLogon.bind(this));
+          .then(this._onCreate.bind(this));
       },
 
       destroy: function() {
@@ -32,7 +32,7 @@ angular.module('flyguyApp')
         }
       },
 
-      _onLogon: function(response) {
+      _onCreate: function(response) {
         this._setToken(response.data.token);
         return response.data;
       }
