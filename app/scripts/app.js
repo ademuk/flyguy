@@ -10,12 +10,7 @@
  */
 angular
     .module('flyguyApp', [
-        'ngAnimate',
         'ngAria',
-        'ngCookies',
-        'ngMessages',
-        'ngResource',
-        'ngSanitize',
         'ngTouch',
         'restangular',
         'ui.router',
@@ -38,6 +33,11 @@ angular
                 url: '/log',
                 templateUrl: 'views/log.html',
                 controller: 'LogCtrl'
+            })
+            .state('register', {
+                url: '/register',
+                templateUrl: 'views/register.html',
+                controller: 'RegisterCtrl'
             })
             .state('login', {
                 url: '/login',
