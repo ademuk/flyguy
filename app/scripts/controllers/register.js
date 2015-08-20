@@ -11,9 +11,12 @@ angular.module('flyguyApp')
   .controller('RegisterCtrl', function ($scope, $location, User) {
     $scope.user = {
       'email': $location.search().email || ''
-    }
-    
+    };
+
     $scope.submitForm = function (isValid, user) {
+      if (user.password !== user.confirmPassword) {
+        return;
+      }
       User.create(user).then(function () {
         $location.path('/login');
       });

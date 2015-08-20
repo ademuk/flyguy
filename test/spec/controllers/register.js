@@ -11,9 +11,7 @@ describe('RegisterCtrl', function () {
   beforeEach(inject(function ($q, $controller, _$rootScope_) {
     userCreateDeferred = $q.defer();
     UserMock = {
-      'create': function () {
-        return userCreateDeferred.promise;
-      }
+      'create': sinon.stub().returns(userCreateDeferred.promise)
     };
 
     $rootScope = _$rootScope_;
@@ -39,12 +37,24 @@ describe('RegisterCtrl', function () {
 
   it('redirects to login after registration', function () {
     $scope.submitForm(true, {
-
+      'username': 'foo@bar.com',
+      'password': 'foo',
+      'confirmPassword': 'foo'
     });
 
     userCreateDeferred.resolve();
     $rootScope.$digest();
 
     expect(locationMock.path.calledWith('/login')).toEqual(true);
+  });
+
+  it('user is not created if passwords do not match', function () {
+    $scope.submitForm(true, {
+      'username': 'foo@bar.com',
+      'password': 'foo',
+      'confirmPassword': 'bar'
+    });
+
+    expect(UserMock.create.called).toBe(false);
   });
 });
