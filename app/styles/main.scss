@@ -12,6 +12,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em;
 }
 
+nav button[ui-sref=login] {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
 .flights {
   padding: 0;
   list-style-type: none;
@@ -21,6 +26,6 @@ input[type=date] {
   width: 160px;
 }
 
-input[name=username], input[name=password] {
+input[type=text], input[type=email],input[type=password] {
   width: 200px;
 }

@@ -11,15 +11,15 @@ describe('LoginCtrl', function () {
   beforeEach(inject(function ($q, $controller, _$rootScope_) {
     sessionCreateDeferred = $q.defer();
     SessionMock = {
-      'create': function () {
-        return sessionCreateDeferred.promise;
-      }
+      'create': sinon.stub().returns(sessionCreateDeferred.promise)
     };
 
     $rootScope = _$rootScope_;
     $scope = $rootScope.$new();
     locationMock = {
-      'path': sinon.stub()
+      'path': sinon.stub().returns({
+        'search': sinon.stub()
+      })
     };
     $controller('LoginCtrl', {
       $scope: $scope,
@@ -28,15 +28,43 @@ describe('LoginCtrl', function () {
     });
   }));
 
+  it('creates session', function () {
+    $scope.hasAccount = true;
+    $scope.submitForm(true, {
+      'email': 'foo',
+      'password': 'bar'
+    });
+
+    expect(SessionMock.create.calledWith({
+      'email': 'foo',
+      'password': 'bar'
+    })).toEqual(true);
+  });
+
   it('redirects to flights after login', function () {
-    $scope.logIn({
-      'username': 'foo',
+    $scope.hasAccount = true;
+    $scope.submitForm(true, {
+      'email': 'foo',
       'password': 'bar'
     });
 
     sessionCreateDeferred.resolve();
     $rootScope.$digest();
-
     expect(locationMock.path.calledWith('/flights')).toEqual(true);
+  });
+
+  it('redirects to register page if user does not have an account', function () {
+    $scope.hasAccount = false;
+    $scope.submitForm(true, {
+      'email': 'foo@bar.com'
+    });
+
+    sessionCreateDeferred.resolve();
+    $rootScope.$digest();
+
+    expect(locationMock.path.calledWith('/register')).toEqual(true);
+    expect(locationMock.path().search.calledWith({
+      'email': 'foo@bar.com'
+    })).toEqual(true);
   });
 });
