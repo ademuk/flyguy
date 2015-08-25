@@ -13,9 +13,7 @@ describe('User', function () {
       $q,
       User,
       mockHttp,
-      mockResponse = {
-        
-      },
+      mockResponse = {},
       postDeferred;
 
   beforeEach(module('flyguyApp'));
@@ -47,7 +45,7 @@ describe('User', function () {
     User.create(userPayload);
     postDeferred.resolve(mockResponse);
     expect(mockHttp.post.calledOnce).toEqual(true);
-    expect(mockHttp.post.calledWith(baseUrl + 'user/', userPayload))
+    expect(mockHttp.post.calledWith(baseUrl + 'users/', userPayload))
       .toEqual(true);
   });
 

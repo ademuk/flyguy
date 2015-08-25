@@ -35,6 +35,19 @@ describe('RegisterCtrl', function () {
     expect($scope.user.email).toEqual(locationMock.search().email);
   });
 
+  it('creates user', function () {
+    $scope.submitForm(true, {
+      'username': 'foo@bar.com',
+      'password': 'foo',
+      'confirmPassword': 'foo'
+    });
+
+    expect(UserMock.create.calledWith({
+      'username': 'foo@bar.com',
+      'password': 'foo'
+    })).toEqual(true);
+  });
+
   it('redirects to login after registration', function () {
     $scope.submitForm(true, {
       'username': 'foo@bar.com',
