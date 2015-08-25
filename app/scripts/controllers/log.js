@@ -8,7 +8,8 @@
  * Controller of the flyguyApp
  */
 angular.module('flyguyApp')
-    .controller('LogCtrl', function ($scope, $location, $filter, Flights) {
+    .controller('LogCtrl', function ($scope, $location, $filter, Flights, Session) {
+        $scope.session = Session.exists();
         $scope.submitForm = function(isValid, flight) {
           var newFlight;
           if (!isValid) {

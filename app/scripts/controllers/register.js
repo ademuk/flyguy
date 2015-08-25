@@ -14,10 +14,13 @@ angular.module('flyguyApp')
     };
 
     $scope.submitForm = function (isValid, user) {
+      var newUser;
       if (user.password !== user.confirmPassword) {
         return;
       }
-      User.create(user).then(function () {
+      newUser = angular.copy(user);
+      delete newUser.confirmPassword;
+      User.create(newUser).then(function () {
         $location.path('/login');
       });
     };

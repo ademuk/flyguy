@@ -1,5 +1,5 @@
 <h3>Log a flight</h3>
-<form name="flightForm" class="form-horizontal" ng-submit="submitForm(flightForm.$valid, flight)">
+<form name="flightForm" class="form-horizontal" ng-show="session" ng-submit="submitForm(flightForm.$valid, flight)">
     <div class="form-group">
         <label for="name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
@@ -25,3 +25,4 @@
         </div>
     </div>
 </form>
+<p ng-show="!session">Please <a ui-sref="login">log in</a> to add a flight.</p>
