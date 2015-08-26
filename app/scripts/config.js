@@ -1,7 +1,6 @@
 'use strict';
 
-//var baseUrl = 'http://flyguy-service.appyharry.com/api/';
-var baseUrl = 'http://127.0.0.1:8000/api/';
+var baseUrl = 'http://flyguy-service.appyharry.com/api/';
 
 /**
  * @ngdoc overview
