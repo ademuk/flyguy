@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -43,6 +44,11 @@
             <li ng-show="session.exists()" ng-cloak>
               <button class="btn btn-default navbar-btn" ng-click="logOut()" type="button">Log out</button>
             </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <li>
+            <a href="https://github.com/ademuk/flyguy"><i class="fa fa-github fa-lg"></i></a>
+          </li>
         </ul>
       </div>
     </div>
