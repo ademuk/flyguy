@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('flyguyApp')
-  .factory('Session', function(config, $http) {
+  .factory('Session', function(config, $http, jwtHelper) {
 
     function Session () {
       if (localStorage.getItem('sessionToken')) {
@@ -20,7 +20,10 @@ angular.module('flyguyApp')
       },
 
       exists: function() {
-        return !!this.token;
+        if (!this.token) {
+          return false;
+        }
+        return !jwtHelper.isTokenExpired(this.token);
       },
 
       _setToken: function (value) {

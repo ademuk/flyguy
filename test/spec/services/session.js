@@ -2,20 +2,28 @@
 
 describe('Session', function () {
   var baseUrl = 'http://fooaddress/',
-      userPayload = {
-        'username': 'fooUsername',
-        'password': 'fooPassword'
-      },
       $rootScope,
       $q,
       Session,
       mockHttp,
-      mockResponse = {
-        'data': {
-          'token': 'fooToken'
-        }
+      postDeferred,
+      btoa = window.btoa,
+      stringify = JSON.stringify,
+      userPayload = {
+        'username': 'fooUsername',
+        'password': 'fooPassword'
       },
-      postDeferred;
+      generateToken = function (claims) {
+        return btoa(stringify({'typ': 'JWT', 'alg': 'HS256'})) + '.' + btoa(stringify(claims)) + '.signature';
+      },
+      generateResponse = function (claims) {
+        claims = claims || {};
+        return {
+          'data': {
+            'token': generateToken(claims)
+          }
+        };
+      };
 
   beforeEach(module('flyguyApp'));
 
@@ -40,19 +48,37 @@ describe('Session', function () {
 
   it('create session calls correct endpoint', function () {
     Session.create(userPayload);
-    postDeferred.resolve(mockResponse);
+    postDeferred.resolve(generateResponse());
     expect(mockHttp.post.calledOnce).toEqual(true);
     expect(mockHttp.post.calledWith(baseUrl + 'token-auth/', userPayload))
       .toEqual(true);
   });
 
-  it('session does not exists by default', function () {
+  it('session does not exist by default', function () {
+    expect(Session.exists()).toEqual(false);
+  });
+
+  it('session does not exist if expired', function () {
+    var timeInPast = (new Date() - 999),
+      claims = {
+        'iat': (new Date() - 9999) / 1000,
+        'exp': timeInPast / 1000
+      };
+    Session.create(userPayload);
+    postDeferred.resolve(generateResponse(claims));
+    $rootScope.$digest();
+
     expect(Session.exists()).toEqual(false);
   });
 
   it('session exists after it\'s created', function () {
+    var timeInFuture = new Date().valueOf() + 999,
+      claims = {
+        'iat': (new Date() - 9999) / 1000,
+        'exp': timeInFuture / 1000
+      };
     Session.create(userPayload);
-    postDeferred.resolve(mockResponse);
+    postDeferred.resolve(generateResponse(claims));
     $rootScope.$digest();
 
     expect(Session.exists()).toEqual(true);
@@ -60,7 +86,7 @@ describe('Session', function () {
 
   it('destroy removes session', function () {
     Session.create(userPayload);
-    postDeferred.resolve(mockResponse);
+    postDeferred.resolve(generateResponse());
     $rootScope.$digest();
 
     Session.destroy();
