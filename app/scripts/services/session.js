@@ -1,9 +1,14 @@
 'use strict';
 
-angular.module('flyguyApp')
+/**
+ * @ngdoc service
+ * @name flyguyApp.Session
+ */
+angular
+  .module('flyguyApp')
   .factory('Session', function(config, $http, jwtHelper) {
 
-    function Session () {
+    function Session() {
       if (localStorage.getItem('sessionToken')) {
         this._setToken(localStorage.getItem('sessionToken'));
       }

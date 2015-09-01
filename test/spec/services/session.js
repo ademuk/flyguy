@@ -28,13 +28,13 @@ describe('Session', function () {
   beforeEach(module('flyguyApp'));
 
   beforeEach(module(function ($provide) {
-      mockHttp = {
-        'post': function () {}
-      };
-      $provide.value('$http', mockHttp);
-      $provide.constant('config', {
-        'baseUrl': baseUrl
-      });
+    mockHttp = {
+      'post': function () {}
+    };
+    $provide.value('$http', mockHttp);
+    $provide.constant('config', {
+      'baseUrl': baseUrl
+    });
   }));
 
   beforeEach(inject(function (_$rootScope_, _$q_, _Session_) {

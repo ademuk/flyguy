@@ -2,13 +2,12 @@
 
 /**
  * @ngdoc service
- * @name flyguyApp.user
- * @description
- * # user
- * Service in the flyguyApp.
+ * @name flyguyApp.User
  */
-angular.module('flyguyApp')
-  .service('User', function (config, $http) {
+angular
+  .module('flyguyApp')
+  .factory('User', function (config, $http) {
+
     function User() {}
 
     User.prototype.create = function(user) {
