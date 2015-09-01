@@ -1,6 +1,8 @@
 {
   "name": "flyguy",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "An AngularJS app for a project to keep track of my mini quad flights",
+  "author": "Adem Gaygusuz <adem@ardweb.co.uk>",
   "dependencies": {},
   "repository": {},
   "devDependencies": {
@@ -41,5 +43,6 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "license": "MIT"
 }
